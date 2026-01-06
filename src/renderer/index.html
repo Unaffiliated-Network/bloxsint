@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloxsint Enhanced - Roblox OSINT Tool</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="app-container no-sidebar">
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Header -->
+        <header class="header">
+          <div class="logo-section">
+            <img src="assets/logo.png" alt="Bloxsint Enhanced" class="logo-icon-img">
+            <h1 class="logo-text">Bloxsint Enhanced</h1>
+          </div>
+          <p class="tagline">Advanced Roblox OSINT Tool</p>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+          <div class="search-card">
+            <h2 class="section-title">Target Lookup</h2>
+
+            <div class="search-type-toggle">
+              <button class="toggle-btn active" data-type="username">
+                <span class="icon">👤</span>
+                Username
+              </button>
+              <button class="toggle-btn" data-type="id">
+                <span class="icon">🔢</span>
+                User ID
+              </button>
+            </div>
+
+            <div class="input-group">
+              <input type="text" id="searchInput" class="search-input" placeholder="Enter Roblox username..."
+                autocomplete="off">
+              <button id="searchBtn" class="search-btn">
+                <span class="btn-text">Search</span>
+                <span class="btn-icon">→</span>
+              </button>
+            </div>
+
+            <!-- Advanced Options -->
+            <div class="advanced-options">
+              <button class="options-toggle" id="optionsToggle">
+                <span>⚙️ Advanced Options</span>
+                <span class="arrow">▼</span>
+              </button>
+
+              <div class="options-content" id="optionsContent">
+                <div class="option-row">
+                  <label for="gameLimit">Game Limit:</label>
+                  <input type="number" id="gameLimit" value="10" min="1" max="100">
+                </div>
+
+                <div class="option-row">
+                  <label for="database">MongoDB URL (Optional):</label>
+                  <input type="text" id="database" placeholder="MongoDB Atlas connection string">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+          <div class="results-header">
+            <h2 class="section-title">Results</h2>
+            <div class="results-actions">
+              <button class="action-btn" id="exportBtn">
+                <span>💾</span> Export JSON
+              </button>
+              <button class="action-btn" id="clearBtn">
+                <span>🗑️</span> Clear
+              </button>
+            </div>
+          </div>
+
+          <div class="results-content" id="resultsContent">
+            <!-- Results will be dynamically inserted here -->
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+      <div class="loading-content">
+        <div class="spinner"></div>
+        <p class="loading-text">Gathering intelligence...</p>
+        <p class="loading-subtext" id="loadingProgress"></p>
+      </div>
+    </div>
+
+    <!-- Error Toast -->
+    <div class="toast error-toast" id="errorToast" style="display: none;">
+      <span class="toast-icon">⚠️</span>
+      <span class="toast-message" id="errorMessage"></span>
+    </div>
+
+    <!-- Success Toast -->
+    <div class="toast success-toast" id="successToast" style="display: none;">
+      <span class="toast-icon">✓</span>
+      <span class="toast-message" id="successMessage"></span>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+
+</html>

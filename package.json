@@ -1,0 +1,58 @@
+{
+    "name": "bloxsint-enhanced",
+    "version": "3.0.0",
+    "description": "Bloxsint Enhanced - Advanced Roblox OSINT Tool with GUI",
+    "main": "src/main/index.js",
+    "scripts": {
+        "start": "electron .",
+        "build": "electron-builder",
+        "build:win": "electron-builder --win",
+        "build:mac": "electron-builder --mac",
+        "build:linux": "electron-builder --linux"
+    },
+    "keywords": [
+        "roblox",
+        "osint",
+        "electron",
+        "gui"
+    ],
+    "author": "Bloxsint",
+    "license": "MIT",
+    "dependencies": {
+        "axios": "^1.13.2",
+        "axios-retry": "^4.5.0"
+    },
+    "devDependencies": {
+        "@electron/packager": "^19.0.1",
+        "electron": "^28.0.0",
+        "electron-builder": "^24.9.1",
+        "png-to-ico": "^3.0.1",
+        "rcedit": "^5.0.2",
+        "sharp": "^0.34.5"
+    },
+    "build": {
+        "appId": "com.bloxsint-enhanced.app",
+        "productName": "Bloxsint Enhanced",
+        "directories": {
+            "output": "dist"
+        },
+        "files": [
+            "src/**/*",
+            "core/**/*",
+            "main.py",
+            "requirements.txt"
+        ],
+        "win": {
+            "target": "nsis",
+            "icon": "build/icon.ico"
+        },
+        "mac": {
+            "target": "dmg",
+            "icon": "build/icon.icns"
+        },
+        "linux": {
+            "target": "AppImage",
+            "icon": "build/icon.png"
+        }
+    }
+}
